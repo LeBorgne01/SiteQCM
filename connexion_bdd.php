@@ -1,15 +1,15 @@
 
 <?php
 	//On inclut les fichiers utilisés
-	require_once('BDD.php');
+	require_once('BaseDeDonnees.php');
 
 	//On crée une nouvelle Base de données
-	$BDD = new BDD("root","qcm","","localhost");
+	$BaseDeDonnees = new BaseDeDonnees("root","qcm","","localhost");
 	//On s'y connecte
-	$BDD->connexion();
+	$BaseDeDonnees->connexion();
 
 	//Pour éviter les erreurs d'accent dans les mots
-	$requete = $BDD->get_pdo()->prepare("SET NAMES utf8");
+	$requete = $BaseDeDonnees->get_pdo()->prepare("SET NAMES utf8");
 	$requete->execute();
 
 	//Ajout d'un prefixe et d'un suffixe pour augmenter la sécurité des mots de passe

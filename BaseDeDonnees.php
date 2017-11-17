@@ -1,6 +1,6 @@
 <?php
-	class BDD{
-		//Attribut de la classe BDD
+	class BaseDeDonnees{
+		//Attribut de la classe BaseDeDonnees
 		private $user;
 		private $password;
 		private $host;
@@ -8,7 +8,7 @@
 		private $pdo;
 
 		/**
-		 * Constructeur de la classe BDD
+		 * Constructeur de la classe BaseDeDonnees
 		 *	@param string $_user le nom d'utilisateur pour se connecter à PhpMyAdmin
 		 *  @param string $_bdName le nom de la base utilisée
 		 *  @param string $_password le mot de passe pour se connecter à PhpMyAdmin

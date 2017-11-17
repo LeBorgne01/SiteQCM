@@ -11,7 +11,7 @@
 		sleep(1);
 
 		//On se connecte à la base de données
-		require_once("connexionbd.php");
+		require_once("connexion_bdd.php");
 
 		//on enregistre les données postées dans le formulaire et on les sécurise des caractères spéciaux
 		$id = htmlspecialchars($_POST['id']);
