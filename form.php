@@ -28,7 +28,7 @@
 		 *	@param string $_placeholder le placeholder de l'input ajouté (peut être vide)
 		 *	@param boolean $_required si oui ou non l'input est obligatoire à remplir
 		*/
-		public function setinput($_type,$_name,$_placeholder,$_required){
+		public function set_input($_type,$_name,$_placeholder,$_required){
 			$this->form .= "<input type='".$_type."'";
 
 			if($_name != ""){
@@ -51,7 +51,7 @@
 		 *	@param string $_name le nom du bouton de validation
 		 *	@param string $_value la valeur que prend le bouton de validation
 		*/
-		public function setsubmit($_name,$_value){
+		public function set_submit($_name,$_value){
 			$this->form .= "<input type='submit' name='".$_name."' value='".$_value."'>";
 		}
 
@@ -59,7 +59,7 @@
 		 * 	Permet d'obtenir le formulaire complet créé
 		 *	@return string $this->form le formulaire complet créé 
 		*/
-		public function getform(){
+		public function get_form(){
 			$this->form .= "</form>";
 			echo $this->form;
 		}
@@ -69,7 +69,7 @@
 		 *	@param string $_name le nom de l'input caché
 		 *	@param string $_value la valeur que prend l'input caché
 		*/
-		public function setHidden($_name,$_value){
+		public function set_hidden($_name,$_value){
 			$this->form .= "<input type='hidden' name='".$_name."' value='".$_value."'>";
 		}
 		/**
@@ -80,7 +80,7 @@
 		 *	@param boolean $_required si oui ou non l'input est obligatoire à remplir
 		 *	@param string $_value la valeur que l'input prend
 		*/
-		public function setinputValue($_type,$_name,$_placeholder,$_required,$_value){
+		public function set_input_value($_type,$_name,$_placeholder,$_required,$_value){
 			$this->form .= "<input type='".$_type."'";
 
 			if($_name != ""){

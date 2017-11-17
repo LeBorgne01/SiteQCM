@@ -9,7 +9,7 @@
 	$BDD->connexion();
 
 	//Pour éviter les erreurs d'accent dans les mots
-	$requete = $BDD->getPdo()->prepare("SET NAMES utf8");
+	$requete = $BDD->get_pdo()->prepare("SET NAMES utf8");
 	$requete->execute();
 
 	//Ajout d'un prefixe et d'un suffixe pour augmenter la sécurité des mots de passe
@@ -18,10 +18,10 @@
 
 	/**
 	 * 	Permet de hasher un mot de passe en 'sha256'
-	 *	@param string $password le mot de passe à hasher en brute
+	 *	@param string $_password le mot de passe à hasher en brute
 	 *	@return string $hash le mot de passe hashé  	 
 	*/
-	function hash_password($password){
+	function hash_password($_password){
 
 			$hash = PREFIXE.hash("sha256",$password).SUFFIXE;
 			return $hash;
