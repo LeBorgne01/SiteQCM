@@ -76,22 +76,67 @@
 		}
 
 		/** 
-		 * 	A refaire
-		 *  execute la requête sql 'SELECT'
+		 *  execute la requête sql 'SELECT' dans la table utilisateur
 		 *	@param string $_attribut l'attribut que l'on veut chercher grâce à la requête
-		 *  @param string $_table la table dans laquelle on va effectuer la requête
 		 *	@param string $_condition la condition de la requête SQL
+		 *  @param int $_typeCondition la colonne qui intervient dans la condition : 1 si c'est login, 2 si c'est le password, 3 si c'est le statut
 		 *  @return array|string qui contient le résultat de la requête effectuée (à fetch() ou pas)
 		*/
-		public function select($_attribut,$_table,$_condition){
-			$requete = "SELECT $_attribut FROM $_table";
+		public function select_utilisateur($_attribut,$_condition,$_typeCondition){
+			$requete = "SELECT ? FROM utilisateur";
 
 			if($_condition != ""){
-				$requete .= " WHERE $_condition";
+				$requete .= " WHERE ";
+				if($_typeCondition == 1){
+					$requete .= " login = ?";
+
+					$this->pdo->prepare($requete);
+					$resultat = $this->pdo->execute(array($_attribut,$_condition));
+				}
+				else if($_typeCondition == 2){
+					$requete .= " password = ?";
+
+					$this->pdo->prepare($requete);
+					$resultat = $this->pdo->execute(array($_attribut,$_condition));
+				}
+				else if($_typeCondition == 3){
+					$requete .= " statut = ?";
+
+					$this->pdo->prepare($requete);
+					$resultat = $this->pdo->execute(array($_attribut,$_condition));
+				}
 			}
 			
-			$res = $this->pdo->query($requete);
-			return $res;
+			return $resultat;
+		}
+
+		/** 
+		 *  execute la requête sql 'SELECT' dans la table etudiant
+		 *	@param string $_attribut l'attribut que l'on veut chercher grâce à la requête
+		 *	@param string $_condition la condition de la requête SQL
+		 *  @param int $_typeCondition la colonne qui intervient dans la condition : 1 si c'est login, 2 si c'est le password, 3 si c'est le statut
+		 *  @return array|string qui contient le résultat de la requête effectuée (à fetch() ou pas)
+		*/
+		public function select_etudiant($_attribut,$_condition,$_typeCondition){
+			$requete = "SELECT ? FROM etudiant";
+
+			if($_condition != ""){
+				$requete .= " WHERE ";
+				if($_typeCondition == 1){
+					$requete .= " login = ?";
+
+					$this->pdo->prepare($requete);
+					$resultat = $this->pdo->execute(array($_attribut,$_condition));
+				}
+				else if($_typeCondition == 2){
+					$requete .= " note = ?";
+
+					$this->pdo->prepare($requete);
+					$resultat = $this->pdo->execute(array($_attribut,$_condition));
+				}
+			}
+			
+			return $resultat;
 		}
 
 
