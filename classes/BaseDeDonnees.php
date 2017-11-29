@@ -185,10 +185,10 @@
 		 *	@param string $_string le mot de passe à inserer dans la table 
 		 *	@param string $_login le login qui indique la ligne où on va modifier le mot de passe
 		*/
-		public function modifier_mdp_utilisateur($_string,$_login){
+		public function modifier_mdp_enseignant($_string,$_login){
 			try{
 				
-				$requete='UPDATE `utilisateur` SET `password`="'.$_string.'"WHERE login="'.$_login.'"';
+				$requete = 'UPDATE enseignant SET password = "'.$_string.'"WHERE login="'.$_login.'"';
 				
 				$stmt = $this->pdo->query($requete);
 				
