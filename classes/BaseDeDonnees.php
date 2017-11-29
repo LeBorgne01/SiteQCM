@@ -79,21 +79,22 @@
 		 *  execute la requête sql 'SELECT' dans la table enseignant
 		 *	@param string $_attribut l'attribut que l'on veut chercher grâce à la requête
 		 *	@param string $_condition la condition de la requête SQL
-		 *  @param int $_typeCondition la colonne qui intervient dans la condition : 1 si c'est login, 2 si c'est le password
+		 *  @param int $_typeCondition la colonne qui intervient dans la condition : 'login' si c'est login, 'password' si c'est le password
 		 *  @return array|string qui contient le résultat de la requête effectuée (à fetch() ou pas)
 		*/
-		public function select_enseignant($_attribut,$_condition,$_typeCondition){
+		public function select_enseignant($_attribut,$_typeCondition,$_condition){
 			$requete = "SELECT ? FROM enseignant";
 
 			if($_condition != ""){
 				$requete .= " WHERE ";
-				if($_typeCondition == 1){
+
+				if($_typeCondition == "login"){
 					$requete .= " login = ?";
 
 					$this->pdo->prepare($requete);
 					$resultat = $this->pdo->execute(array($_attribut,$_condition));
 				}
-				else if($_typeCondition == 2){
+				else if($_typeCondition == "password"){
 					$requete .= " password = ?";
 
 					$this->pdo->prepare($requete);
@@ -112,27 +113,27 @@
 		 *  execute la requête sql 'SELECT' dans la table etudiant
 		 *	@param string $_attribut l'attribut que l'on veut chercher grâce à la requête
 		 *	@param string $_condition la condition de la requête SQL
-		 *  @param int $_typeCondition la colonne qui intervient dans la condition : 1 si c'est login, 2 si c'est le password, 3 si c'est la moyenne
+		 *  @param int $_typeCondition la colonne qui intervient dans la condition : 'login' si c'est login, 'password' si c'est le password, moyenne si c'est la moyenne
 		 *  @return array|string qui contient le résultat de la requête effectuée (à fetch() ou pas)
 		*/
-		public function select_etudiant($_attribut,$_condition,$_typeCondition){
+		public function select_etudiant($_attribut,$_typeCondition,$_condition){
 			$requete = "SELECT ? FROM etudiant";
 
 			if($_condition != ""){
 				$requete .= " WHERE ";
-				if($_typeCondition == 1){
+				if($_typeCondition == "login"){
 					$requete .= " login = ?";
 
 					$this->pdo->prepare($requete);
 					$resultat = $this->pdo->execute(array($_attribut,$_condition));
 				}
-				else if($_typeCondition == 2){
+				else if($_typeCondition == "password"){
 					$requete .= " password = ?";
 
 					$this->pdo->prepare($requete);
 					$resultat = $this->pdo->execute(array($_attribut,$_condition));
 				}
-				else if($_typeCondition == 3){
+				else if($_typeCondition == "moyenne"){
 					$requete .= " moyenne = ?";
 
 					$this->pdo->prepare($requete);
