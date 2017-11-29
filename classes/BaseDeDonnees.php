@@ -68,7 +68,8 @@
 		public function connexion(){
 			try{
 				$dsn = 'mysql:host='.$this->host.';port=3306;dbname='.$this->bdName.'';
-				$this->pdo = new PDO($dsn, $this->user, $this->password);
+				$this->pdo = new PDO($dsn, $this->user, $this->password,
+				array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 			}
 			catch (Exception $e){
 				die('Erreur : ' . $e->getMessage());
@@ -83,29 +84,35 @@
 		 *  @return array|string qui contient le résultat de la requête effectuée (à fetch() ou pas)
 		*/
 		public function select_enseignant($_attribut,$_typeCondition,$_condition){
-			$requete = "SELECT ? FROM enseignant";
+			if($_attribut == "*"){
+				$requete = "SELECT * FROM enseignant";
+			}
+			else{
+				$requete = "SELECT ? FROM enseignant";
+			}
+			
 
 			if($_condition != ""){
 				$requete .= " WHERE ";
 
 				if($_typeCondition == "login"){
-					$requete .= " login = ?";
-
-					$this->pdo->prepare($requete);
-					$resultat = $this->pdo->execute(array($_attribut,$_condition));
+					$requete .= "login = ?";
+					
+					$resultat = $this->pdo->prepare($requete);
+					$resultat->execute(array($_attribut,$_condition));
 				}
 				else if($_typeCondition == "password"){
-					$requete .= " password = ?";
+					$requete .= "password = ?";
 
-					$this->pdo->prepare($requete);
-					$resultat = $this->pdo->execute(array($_attribut,$_condition));
+					$resultat = $this->pdo->prepare($requete);
+					$resultat->execute(array($_attribut,$_condition));
 				}
 			}
 			else{
-				$this->pdo->prepare($requete);
-				$resultat = $this->pdo->execute(array($_attribut));
+				$resultat = $this->pdo->prepare($requete);
+				$resultat->execute(array($_attribut));
 			}
-			
+
 			return $resultat;
 		}
 
@@ -117,35 +124,40 @@
 		 *  @return array|string qui contient le résultat de la requête effectuée (à fetch() ou pas)
 		*/
 		public function select_etudiant($_attribut,$_typeCondition,$_condition){
-			$requete = "SELECT ? FROM etudiant";
-
+			if($_attribut == "*"){
+				$requete = "SELECT * FROM etudiant";
+			}
+			else{
+				$requete = "SELECT ? FROM etudiant";
+			}
+			
 			if($_condition != ""){
 				$requete .= " WHERE ";
 				if($_typeCondition == "login"){
 					$requete .= " login = ?";
 
-					$this->pdo->prepare($requete);
-					$resultat = $this->pdo->execute(array($_attribut,$_condition));
+					$resultat = $this->pdo->prepare($requete);
+					$resultat->execute(array($_attribut,$_condition));
 				}
 				else if($_typeCondition == "password"){
 					$requete .= " password = ?";
 
-					$this->pdo->prepare($requete);
-					$resultat = $this->pdo->execute(array($_attribut,$_condition));
+					$resultat = $this->pdo->prepare($requete);
+					$resultat->execute(array($_attribut,$_condition));
 				}
 				else if($_typeCondition == "moyenne"){
 					$requete .= " moyenne = ?";
 
-					$this->pdo->prepare($requete);
-					$resultat = $this->pdo->execute(array($_attribut,$_condition));
+					$resultat = $this->pdo->prepare($requete);
+					$resultat->execute(array($_attribut,$_condition));
 				}
 			}
 			else{
-				$this->pdo->prepare($requete);
-				$resultat = $this->pdo->execute(array($_attribut));
+				$resultat = $this->pdo->prepare($requete);
+				$resultat->execute(array($_attribut));
 			}
 
-			
+
 			return $resultat;
 		}
 
