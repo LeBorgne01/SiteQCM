@@ -26,7 +26,7 @@ class HTML{
 		}
 
 		if(!is_null($this->css) && !isset($this->css)){
-			echo '<link rel="stylesheet" href="style/' . $this->css . '">';
+			echo '<link rel="stylesheet" href="../style/' . $this->css . '">';
 		}
 	}
 }
