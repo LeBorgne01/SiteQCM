@@ -8,5 +8,4 @@
 			$this->password = $_password;
 		}
 
-
 	}
