@@ -70,7 +70,7 @@ else{
 				$_SESSION["utilisateur"]=$etudiant;
 
 				// redirection vers page étudiant
-				
+				header("Location: ../pageEtudiant.php?message=Connecté");
 			}
 		}
 		else{
