@@ -59,5 +59,36 @@ class HTML{
 				</nav>';
 		return $code;
 	}
+
+	public function ecran_connexion(){
+		$code = "<p>Viens niquer des mères</p>";
+
+		$form_connexion = new form("connexion","fonctions/form_connexion.php","post","");
+		$form_connexion->set_input("text","login","Login",1);
+		$form_connexion->add_br();
+		$form_connexion->set_input("password","password","Mot de passe",1);
+		$form_connexion->add_br();
+		$form_connexion->set_submit("validerconnexion","Connexion");
+		$code .= $form_connexion->get_form();
+
+		return $code;
+	}
+
+	/*public function ecran_inscription(){
+		$code = "Ou inscrivez-vous ici (professeurs)";
+
+		$form_inscription = new form("inscription","form_inscription.php","post","");
+		$form_inscription->add_br();
+		$form_inscription->set_input("text","id","Login",1);
+		$form_inscription->add_br();
+		$form_inscription->set_input("password","mdp","Mot de passe",1);
+		$form_inscription->add_br();
+		$form_inscription->set_input("password2","mdp","Confirmation",1);
+		$form_inscription->add_br();
+		$form_inscription->set_submit("validerinscription","S'inscrire");
+		$code .= $form_inscription->get_form();
+
+		return $code;
+	}*/
 }
 ?>
