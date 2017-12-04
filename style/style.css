@@ -19,7 +19,8 @@ header
 	text-align: center;
 	font:arial;
 	font-size: 50px;
-
+	padding-bottom: 5px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 nav
@@ -83,18 +84,55 @@ main
 
 .compte
 {
-	text-align: center;
-}
-
-.compte div
-{
 	position: relative;
 	display: inline-table;
 	width: auto;
 	height: auto;
 	text-align: center;
-	margin: 20px;
-	padding-bottom: 10px;
-	padding-right: 10px;
-	padding-left: 10px;
+	background-color: #5E687F;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.compte *
+{
+	margin: 5px;
+}
+
+.compte input[type=text],input[type=password]
+{
+	background-color: #d3d3d3;
+	padding: 10px;
+	border-radius: 10px;
+	border: 1px solid;
+}
+
+.compte input[type=submit]
+{
+	background-color: #d3d3d3;
+	font-size: 20px;
+	padding: 5px;
+	border:1px solid;
+	border-radius: 5px;
+	transition: all 0.5s;
+	cursor: pointer;
+	position: relative;
+	transition: 0.5s;
+}
+
+.compte input[type=submit]:after
+{
+	content: '\00bb';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -20px;
+	transition: 0.5s;
+}
+
+
+
+.compte p
+{
+	font-size: 20px;
+
 }

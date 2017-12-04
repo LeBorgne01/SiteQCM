@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-require_once("classes/form.php");
-include("classes/HTML.php");
+require_once("/classes/form.php");
+require_once("/classes/HTML.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,12 +20,7 @@ include("classes/HTML.php");
 	<main>
 		<?php
 		echo '<div class="compte">';
-		echo '<div>';
 		echo $html->ecran_connexion();
-		echo '</div>';
-		echo '<div>';
-		echo $html->ecran_inscription();
-		echo '</div>';
 		echo "</div>";
 		?>
 	</main>

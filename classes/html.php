@@ -61,11 +61,16 @@ class HTML{
 	}
 
 	public function ecran_connexion(){
-		$code = "Connectez-vous ici";
+		$code = "<p>Connectez-vous ici</p>";
 
+<<<<<<< HEAD
 		$form_connexion = new form("connexion","./fonctions/form_connexion.php","post","");
 		$form_connexion->add_br();
 		$form_connexion->set_input("text","login","Login",1);
+=======
+		$form_connexion = new form("connexion","form_connexion.php","post","");
+		$form_connexion->set_input("text","id","Login",1);
+>>>>>>> 60e3b82aa7a858b84b6c3c416f5d7bc61020986d
 		$form_connexion->add_br();
 		$form_connexion->set_input("password","password","Mot de passe",1);
 		$form_connexion->add_br();
@@ -75,8 +80,8 @@ class HTML{
 		return $code;
 	}
 
-	public function ecran_inscription(){
-		$code = "Ou inscrivez-vous ici";
+	/*public function ecran_inscription(){
+		$code = "Ou inscrivez-vous ici (professeurs)";
 
 		$form_inscription = new form("inscription","form_inscription.php","post","");
 		$form_inscription->add_br();
@@ -90,6 +95,6 @@ class HTML{
 		$code .= $form_inscription->get_form();
 
 		return $code;
-	}
+	}*/
 }
 ?>
