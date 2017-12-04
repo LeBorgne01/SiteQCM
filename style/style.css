@@ -91,6 +91,8 @@ main
 
 .compte
 {
+	margin-top: 35vh; /* poussé de la moitié de hauteur de viewport */
+	transform: translateY(-65%); /* tiré de la moitié de sa propre hauteur */
 	padding: 10px;
 	position: relative;
 	display: inline-table;
@@ -112,6 +114,7 @@ main
 	padding: 10px;
 	border-radius: 10px;
 	border: 1px solid;
+	font-size: 20px;
 }
 
 .compte input[type=submit]
@@ -143,5 +146,4 @@ main
 {
 	font-family: 'adam';
 	font-size: 20px;
-
 }

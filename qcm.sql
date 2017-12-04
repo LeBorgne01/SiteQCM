@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 04 déc. 2017 à 07:55
+-- Généré le :  lun. 04 déc. 2017 à 11:15
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `enseignant` (
 --
 
 INSERT INTO `enseignant` (`login`, `password`) VALUES
-('Jean', '123');
+('Jean', '15af14gha665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3654ighj5');
 
 -- --------------------------------------------------------
 
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `etudiant` (
 --
 
 INSERT INTO `etudiant` (`login`, `password`, `moyenne`) VALUES
-('Michou', '154', 12.4);
+('Michou', '15af14gh1d0ebea552eb43d0b1e1561f6de8ae92e3de7f1abec52399244d1caed7dbdfa6654ighj5', 12.4);
 
 -- --------------------------------------------------------
 
