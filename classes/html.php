@@ -59,5 +59,16 @@ class HTML{
 				</nav>';
 		return $code;
 	}
+
+	public function ecran_connexion(){
+		$code = "";
+		$form_connexion = new form("connexion","form_connexion.php","post","");
+		$form_connexion->set_input("text","id","Login",1);
+		$form_connexion->set_input("password","mdp","Mot de passe",1);
+		$form_connexion->set_submit("validerconnexion","Connexion");
+
+		$code .= $form_connexion->get_form();
+
+	}
 }
 ?>

@@ -75,7 +75,7 @@ nav ul li a:hover
 main
 {
 	text-align: center;
-	height: 100%;
+	height: inherit;
 	position: relative;
 	margin: auto;
 	padding-top: 50px;
