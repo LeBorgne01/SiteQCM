@@ -1,6 +1,7 @@
 <?php 
 	
 session_start();
+$_SESSION['root']=dirname(__FILE__);
 	require_once("fonctions/connexion_bdd.php");
 	require_once("classes/Form.php");
 		$form = new form("connexion","HashPassword.php","post","");
