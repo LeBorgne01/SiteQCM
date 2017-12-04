@@ -70,6 +70,7 @@
 				$dsn = 'mysql:host='.$this->host.';port=3306;dbname='.$this->bdName.'';
 				$this->pdo = new PDO($dsn, $this->user, $this->password,
 				array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+				$this->pdo->setAttribut(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			}
 			catch (Exception $e){
 				die('Erreur : ' . $e->getMessage());
