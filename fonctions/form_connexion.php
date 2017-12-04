@@ -44,6 +44,7 @@ else{
 
 			$enseignant =new Enseignant($login,$hash);
 			$_SESSION["utilisateur"]=$enseignant;
+			$_SESSION['utilisateur']['is_a'] = "Enseignant";
 			
 			// redirection vers page enseignant
 			header("Location: ../pageEnseignant.php?message=Connecté");
@@ -68,6 +69,7 @@ else{
 
 				$etudiant =new Etudiant($login,$hash);
 				$_SESSION["utilisateur"]=$etudiant;
+				$_SESSION['utilisateur']['is_a'] = "Etudiant";
 
 				// redirection vers page étudiant
 				header("Location: ../pageEtudiant.php?message=Connecté");
