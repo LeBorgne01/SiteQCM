@@ -24,6 +24,5 @@ require_once("classes/html.php");
 		echo "</div>";
 		?>
 	</main>
-	<form name=""></form>
 </body>
 </html>
