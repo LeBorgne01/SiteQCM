@@ -58,6 +58,18 @@
 			$this->form .= "<input class='".$_class."' type='submit' name='".$_name."' value='".$_value."'>";
 		}
 
+		public function reset_form(){
+			$this->form="";
+		}
+
+		/**
+		 * 	Permet d'obtenir le formulaire complet créé
+		 *	@return string $this->form le formulaire complet créé 
+		*/
+		public function update_form(){
+			echo $this->form;
+		}
+
 		/**
 		 * 	Permet d'obtenir le formulaire complet créé
 		 *	@return string $this->form le formulaire complet créé 
@@ -106,8 +118,32 @@
 
 		}
 
+		public function set_button($_class, $_type,$_name,$_action,$_required,$_value){
+			$this->form .= "<input class ='".$_class."' type='".$_type."' action='".$action."'";
 
-	}
+			if($_name != ""){
+				$this->form .= " name='".$_name."'";
+			}
+
+			if($_required){
+				$this->form .= " required";
+			}
+			if($_value!=""){
+				$this->form .= " value='".$_value."'";
+			}
+
+			$this->form .= "/>";
+
+		}
+
+		public function set_select($_class,$_name,$_string){	
+				$this->form .= "<select class='".$_class."' name='".$_name."'>";
+				foreach($_string as $key){
+					$this->form .= "<option value='".$_string[$key]."'>'".$_string[$key]."'</option>";
+				}	
+				$this->form .= "</select>";
+			}
+		}
 
 
 ?>

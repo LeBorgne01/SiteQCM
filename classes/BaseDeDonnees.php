@@ -179,6 +179,20 @@
 			return $resultat;
 		}
 
+		/** 
+		 *  execute la requête sql 'SELECT' dans la table etudiant
+		 *	@param string $_attribut l'attribut que l'on veut chercher grâce à la requête
+		 *	@param string $_condition la condition de la requête SQL
+		*/
+		public function select($_attribut,$_table,$_condition){
+			$requete = "SELECT $_attribut FROM $_table";
+			$requete .= " WHERE ";
+				
+			if($_condition != ""){
+				$requete .= " WHERE $_condition";
+		}
+	}
+
 
 		/**
 		 * 	execute une requête SQL qui permet de modifier des lignes dans la table 'utilisateur'
