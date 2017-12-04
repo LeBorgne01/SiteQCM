@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 04 déc. 2017 à 07:51
+-- Généré le :  lun. 04 déc. 2017 à 07:55
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -85,6 +85,7 @@ CREATE TABLE IF NOT EXISTS `notes` (
 DROP TABLE IF EXISTS `qcm`;
 CREATE TABLE IF NOT EXISTS `qcm` (
   `idQcm` int(11) NOT NULL AUTO_INCREMENT,
+  `loginEnseignant` varchar(50) NOT NULL,
   `nom` varchar(50) NOT NULL,
   `description` varchar(250) NOT NULL,
   PRIMARY KEY (`idQcm`)
@@ -99,6 +100,7 @@ CREATE TABLE IF NOT EXISTS `qcm` (
 DROP TABLE IF EXISTS `question`;
 CREATE TABLE IF NOT EXISTS `question` (
   `idQuestion` int(11) NOT NULL AUTO_INCREMENT,
+  `idQcm` int(11) NOT NULL,
   `intitule` varchar(50) NOT NULL,
   `typeReponse` int(11) NOT NULL,
   `reponses` varchar(300) NOT NULL,
