@@ -27,7 +27,8 @@ else{
 	
 		//On hash le mot de passe poster pour le comparer à celui de la base de données
 	$hash = hash_password($password);
-
+	var_dump($hash);
+	die();
 
 
 		//On regarde si notre résultat est vide, s'il est vide cela veut dire que l'utilisateur n'existe pas, sinon on vérifie le mot de passe
@@ -46,6 +47,7 @@ else{
 			$_SESSION["utilisateur"]=$enseignant;
 			
 			// redirection vers page enseignant
+			header("Location: ./index.php?massage=Connecté");
 			
 		}
 	}

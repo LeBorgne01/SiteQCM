@@ -63,14 +63,14 @@ class HTML{
 	public function ecran_connexion(){
 		$code = "<p>Connectez-vous ici</p>";
 
-<<<<<<< HEAD
-		$form_connexion = new form("connexion","./fonctions/form_connexion.php","post","");
+
+		$form_connexion = new form("connexion","../fonctions/form_connexion.php","post","");
 		$form_connexion->add_br();
 		$form_connexion->set_input("text","login","Login",1);
-=======
+
 		$form_connexion = new form("connexion","form_connexion.php","post","");
 		$form_connexion->set_input("text","id","Login",1);
->>>>>>> 60e3b82aa7a858b84b6c3c416f5d7bc61020986d
+
 		$form_connexion->add_br();
 		$form_connexion->set_input("password","password","Mot de passe",1);
 		$form_connexion->add_br();
