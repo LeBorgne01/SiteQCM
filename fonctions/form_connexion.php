@@ -36,7 +36,7 @@ else{
 
 
 		if($resultat[1] != $hash){
-			header("Location: ./index.php?erreur=Login-Password-Faux");      
+			header("Location: ../index.php?erreur=Login-Password-Faux");      
 		}
 		else{
 				//Si on a une bonne connexion, on peut sauvegarder les champs de session
