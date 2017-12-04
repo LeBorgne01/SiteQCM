@@ -15,7 +15,13 @@
 </head>
 <body>
 	<?php
-		
+		$resultatRequete = $BDD->select_qcm("*","loginEtudiant",$_SESSION['utilisateur']['login']);
+		$resultatRequete->fetch();
+
+		foreach ($resultatRequete as $row) {
+			echo "<div classe='qcm'>";
+			echo $resultatRequete[0];
+		}
 		
 	?>
 </body>
