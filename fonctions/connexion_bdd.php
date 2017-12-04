@@ -1,7 +1,7 @@
 
 <?php
 	//On inclut les fichiers utilisés
-	require_once('./classes/BaseDeDonnees.php');
+	require_once('../classes/BaseDeDonnees.php');
 
 	//On crée une nouvelle Base de données
 	$BaseDeDonnees = new BaseDeDonnees("root","qcm","","localhost");
@@ -23,7 +23,7 @@
 	*/
 	function hash_password($_password){
 
-			$hash = PREFIXE.hash("sha256",$password).SUFFIXE;
+			$hash = PREFIXE.hash("sha256",$_password).SUFFIXE;
 			return $hash;
 
 	}
