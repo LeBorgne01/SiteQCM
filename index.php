@@ -15,7 +15,7 @@ require_once("classes/html.php");
 </head>
 <body>
 	<?php
-	echo $html->header("QCM en folie");
+	echo $html->header("QCM's");
 	//echo $html->menu_nav_eleve();
 	?>
 	<main>

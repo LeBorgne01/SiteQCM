@@ -29,21 +29,23 @@
 		 *	@param boolean $_required si oui ou non l'input est obligatoire à remplir
 		*/
 		public function set_input($_type,$_name,$_placeholder,$_required){
-			$this->form .= "<input type='".$_type."'";
+			$this->form .= '<div class="group"><input type="' .$_type. '"';
 
 			if($_name != ""){
 				$this->form .= " name='".$_name."'";
 			}
 
-			if($_placeholder != ""){
+			/*if($_placeholder != ""){
 				$this->form .= " placeholder='".$_placeholder."'";
-			}
+			}*/
 
 			if($_required){
 				$this->form .= " required";
 			}
 
 			$this->form .= ">";
+			$this->form .= '<span class="highlight"></span><span class="bar"></span>';
+			$this->form .= '<label>' . $_placeholder . '</label></div>';
 		}
 
 		/**
