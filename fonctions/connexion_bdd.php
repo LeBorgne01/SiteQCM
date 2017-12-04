@@ -1,6 +1,5 @@
 
 <?php
-session_start();
 	//On inclut les fichiers utilisés
 require_once($_SESSION['root'] . "/classes/BaseDeDonnees.php");
 
