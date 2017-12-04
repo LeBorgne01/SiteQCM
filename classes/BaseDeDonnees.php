@@ -179,6 +179,61 @@
 			return $resultat;
 		}
 
+		/** 
+		 *  execute la requête sql 'SELECT' dans la table qcm
+		 *	@param string $_attribut l'attribut que l'on veut chercher grâce à la requête
+		 *	@param string $_condition la condition de la requête SQL
+		 *  @param int $_typeCondition la colonne qui intervient dans la condition : 'idQcm' si c'est l'ID du QCM, 'loginEnseignant' si c'est l'ID Enseignant, 'nom' si c'est le nom du QCM, 'description' si c'est la description du qcm
+		 *  @return array|string qui contient le résultat de la requête effectuée (à fetch() ou pas)
+		*/
+		public function select_qcm($_attribut,$_typeCondition,$_condition){
+			if($_attribut == "*"){
+				$requete = "SELECT * FROM qcm";
+			}
+			else{
+				$requete = "SELECT ? FROM qcm";
+			}
+			
+			if($_condition != ""){
+				$requete .= " WHERE ";
+				if($_typeCondition == "idQcm"){
+					$requete .= " idQcm = ?";
+				}
+				else if($_typeCondition == "loginEnseignant"){
+					$requete .= " loginEnseignant = ?";
+				}
+				else if($_typeCondition == "nom"){
+					$requete .= " nom = ?";
+				}
+				else if($_typeCondition == "description"){
+					$requete .= " description = ?";
+				}
+
+				if($_attribut == "*"){
+					$resultat = $this->pdo->prepare($requete);
+					$resultat->execute(array($_condition));
+				}
+				else{
+					$resultat = $this->pdo->prepare($requete);
+					$resultat->execute(array($_attribut,$_condition));
+				}
+				
+			}
+			else{
+				if($_attribut == "*"){
+					$resultat = $this->pdo->prepare($requete);
+					$resultat->execute();
+				}
+				else{
+					$resultat = $this->pdo->prepare($requete);
+					$resultat->execute(array($_attribut));
+				}
+				
+			}
+			
+			return $resultat;
+		}
+
 
 		/**
 		 * 	execute une requête SQL qui permet de modifier des lignes dans la table 'utilisateur'

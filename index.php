@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-require_once("classes/form.php");
-include("classes/HTML.php");
+require_once("/classes/form.php");
+require_once("/classes/HTML.php");
 ?>
 <!DOCTYPE html>
 <html>
