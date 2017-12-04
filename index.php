@@ -14,8 +14,8 @@ include("classes/HTML.php");
 </head>
 <body>
 	<?php
-	echo $html->header("QCM en folie");
-	echo $html->menu_nav_eleve();
+	//echo $html->header("QCM en folie");
+	//echo $html->menu_nav_eleve();
 	?>
 	<main>
 		<?php

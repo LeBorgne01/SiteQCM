@@ -61,7 +61,7 @@
 		*/
 		public function get_form(){
 			$this->form .= "</form>";
-			echo $this->form;
+			return $this->form;
 		}
 
 		/**
@@ -100,6 +100,10 @@
 
 			$this->form .= "/>";
 
+		}
+
+		public function add_br(){
+			$this->form .= "<br>";
 		}
 
 
