@@ -136,6 +136,10 @@
 
 		}
 
+		public function add_br(){
+			$this->form .= "<br>";
+		}
+
 		public function set_select($_class,$_name,$_string){	
 				$this->form .= "<select class='".$_class."' name='".$_name."'>";
 				foreach($_string as $key){

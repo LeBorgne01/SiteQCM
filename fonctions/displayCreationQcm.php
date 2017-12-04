@@ -6,10 +6,11 @@
     //Variable
     $bd = new BaseDeDonnees("root","site_qmc","","localhost"); //Construction d'une nouvelle Base de données
     $bd->connexion(); //Connexion à la base de données
-    $ind = 0; //Indicateur booléen
+    $ind = 1; //Indicateur booléen
 
     /*Ajout à la BD*/
     $res = $bd->select("*","qcm",""); //On selectionne toutes les données dans la table User
+    //var_dump($res);
     var_dump(empty($_POST['title']));
     if(empty($_POST['title']) && empty($_POST['desc']) && empty($_POST['nbQuestion']) && $numberQuestion == "0"){
       header('Location:http://localhost/siteqcm/test.php#?bad_title_description_nb'); //Reconduit vers la page de création
@@ -21,16 +22,21 @@
 
       sleep(1);
 
-      $result = $bd->select("*","qcm","nom = '".$title."'");
-      var_dump($result);
-      if($result == null){
+      while($donnees = $res->fetch()){ //On parcours toutes la tables
+      //On vérifie si le login n'existe
+        if($title == $donnees['nom']){ //On vérifie si le Login existe déjà dans la BD
+          $ind = 0;
+          header('Location:http://localhost/siteqcm/test.php#?qcm_already_existant');
+      }
+    }
+    
+    var_dump($ind);
+
+    if($ind == 1){
         $request = "INSERT INTO qcm VALUES(NULL,'','".$title."','".$desc."')";
         $bd->get_pdo()->query($request);
       }
-      else{
-        header('Location:http://localhost/siteqcm/test.php#?qcm_already_existant');
-      }
-    }
+}
 
 	  $formTest = new Form("formQuestion","formQuestion","../fonctions/validerCreationQcm.php","post",""); //Construction d'un QCM
 
