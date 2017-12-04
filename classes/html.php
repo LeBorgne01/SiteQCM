@@ -63,6 +63,9 @@ class HTML{
 	public function ecran_connexion(){
 		$code = "<p>Connectez-vous ici</p>";
 
+		$form_connexion = new form("connexion","./fonctions/form_connexion.php","post","");
+		$form_connexion->add_br();
+		$form_connexion->set_input("text","login","Login",1);
 		$form_connexion = new form("connexion","form_connexion.php","post","");
 		$form_connexion->set_input("text","login","Login",1);
 		$form_connexion->add_br();
