@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['root']=dirname(__FILE__);
 
 require_once("classes/Form.php");
 require_once("classes/html.php");
