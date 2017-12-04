@@ -52,7 +52,7 @@
 		 *	@param string $_value la valeur que prend le bouton de validation
 		*/
 		public function set_submit($_name,$_value){
-			$this->form .= "<input type='submit' name='".$_name."' value='".$_value."'>";
+			$this->form .= '<input type="submit" name="'.$_name.'" value="'.$_value.'">';
 		}
 
 		/**
@@ -61,7 +61,7 @@
 		*/
 		public function get_form(){
 			$this->form .= "</form>";
-			echo $this->form;
+			return $this->form;
 		}
 
 		/**
@@ -100,6 +100,10 @@
 
 			$this->form .= "/>";
 
+		}
+
+		public function add_br(){
+			$this->form .= "<br>";
 		}
 
 

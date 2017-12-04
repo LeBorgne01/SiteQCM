@@ -15,16 +15,20 @@ require_once("/classes/HTML.php");
 <body>
 	<?php
 	echo $html->header("QCM en folie");
-	echo $html->menu_nav_eleve();
+	//echo $html->menu_nav_eleve();
 	?>
 	<main>
 		<?php
-		$form_connexion = new form("connexion","fonctions/form_connexion.php","post","");
-		$form_connexion->set_input("text","login","Login",1);
-		$form_connexion->set_input("password","password","Mot de passe",1);
-		$form_connexion->set_submit("validerconnexion","Connexion");
-		$form_connexion->get_form();
+		echo '<div class="compte">';
+		echo '<div>';
+		echo $html->ecran_connexion();
+		echo '</div>';
+		echo '<div>';
+		echo $html->ecran_inscription();
+		echo '</div>';
+		echo "</div>";
 		?>
 	</main>
+	<form name=""></form>
 </body>
 </html>
