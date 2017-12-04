@@ -2,8 +2,8 @@
 	session_start();
 	require_once("fonctions/connexion_bdd.php");
 
-	if(!isset($_SESSION['utilisateur']) || !is_a($_SESSION['utilisateur'],"Etudiant")){
-		header('Location: index.php');
+	if(!isset($_SESSION['utilisateur']) || $_SESSION['utilisateur']['is_a'] != "Etudiant"){
+		header('Location: index.php?erreur="Vous n\'êtes pas connecté"');
 	}
 
 ?>
