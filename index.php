@@ -20,12 +20,7 @@ include("classes/HTML.php");
 	<main>
 		<?php
 		echo '<div class="compte">';
-		echo '<div>';
 		echo $html->ecran_connexion();
-		echo '</div>';
-		echo '<div>';
-		echo $html->ecran_inscription();
-		echo '</div>';
 		echo "</div>";
 		?>
 	</main>
