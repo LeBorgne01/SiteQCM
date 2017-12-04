@@ -68,7 +68,8 @@
 		public function connexion(){
 			try{
 				$dsn = 'mysql:host='.$this->host.';port=3306;dbname='.$this->bdName.'';
-				$this->pdo = new PDO($dsn, $this->user, $this->password);
+				$this->pdo = new PDO($dsn, $this->user, $this->password,
+				array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 			}
 			catch (Exception $e){
 				die('Erreur : ' . $e->getMessage());
@@ -76,35 +77,51 @@
 		}
 
 		/** 
-		 *  execute la requête sql 'SELECT' dans la table utilisateur
+		 *  execute la requête sql 'SELECT' dans la table enseignant
 		 *	@param string $_attribut l'attribut que l'on veut chercher grâce à la requête
 		 *	@param string $_condition la condition de la requête SQL
-		 *  @param int $_typeCondition la colonne qui intervient dans la condition : 1 si c'est login, 2 si c'est le password, 3 si c'est le statut
+		 *  @param int $_typeCondition la colonne qui intervient dans la condition : 'login' si c'est login, 'password' si c'est le password
 		 *  @return array|string qui contient le résultat de la requête effectuée (à fetch() ou pas)
 		*/
-		public function select_utilisateur($_attribut,$_condition,$_typeCondition){
-			$requete = "SELECT ? FROM utilisateur";
-
+		public function select_enseignant($_attribut,$_typeCondition,$_condition){
+			if($_attribut == "*"){
+				$requete = "SELECT * FROM enseignant";
+			}
+			else{
+				$requete = "SELECT ? FROM enseignant";
+			}
+			
 			if($_condition != ""){
 				$requete .= " WHERE ";
-				if($_typeCondition == 1){
+
+				if($_typeCondition == "login"){
 					$requete .= " login = ?";
-
-					$this->pdo->prepare($requete);
-					$resultat = $this->pdo->execute(array($_attribut,$_condition));
 				}
-				else if($_typeCondition == 2){
+				else if($_typeCondition == "password"){
 					$requete .= " password = ?";
-
-					$this->pdo->prepare($requete);
-					$resultat = $this->pdo->execute(array($_attribut,$_condition));
 				}
-				else if($_typeCondition == 3){
-					$requete .= " statut = ?";
 
-					$this->pdo->prepare($requete);
-					$resultat = $this->pdo->execute(array($_attribut,$_condition));
+
+				if($_attribut == "*"){
+					$resultat = $this->pdo->prepare($requete);
+					$resultat->execute(array($_condition));
 				}
+				else{
+					$resultat = $this->pdo->prepare($requete);
+					$resultat->execute(array($_attribut,$_condition));
+				}
+				
+			}
+			else{
+				if($_attribut == "*"){
+					$resultat = $this->pdo->prepare($requete);
+					$resultat->execute();
+				}
+				else{
+					$resultat = $this->pdo->prepare($requete);
+					$resultat->execute(array($_attribut));
+				}
+				
 			}
 			
 			return $resultat;
@@ -114,26 +131,49 @@
 		 *  execute la requête sql 'SELECT' dans la table etudiant
 		 *	@param string $_attribut l'attribut que l'on veut chercher grâce à la requête
 		 *	@param string $_condition la condition de la requête SQL
-		 *  @param int $_typeCondition la colonne qui intervient dans la condition : 1 si c'est login, 2 si c'est le password, 3 si c'est le statut
+		 *  @param int $_typeCondition la colonne qui intervient dans la condition : 'login' si c'est login, 'password' si c'est le password, moyenne si c'est la moyenne
 		 *  @return array|string qui contient le résultat de la requête effectuée (à fetch() ou pas)
 		*/
-		public function select_etudiant($_attribut,$_condition,$_typeCondition){
-			$requete = "SELECT ? FROM etudiant";
-
+		public function select_etudiant($_attribut,$_typeCondition,$_condition){
+			if($_attribut == "*"){
+				$requete = "SELECT * FROM etudiant";
+			}
+			else{
+				$requete = "SELECT ? FROM etudiant";
+			}
+			
 			if($_condition != ""){
 				$requete .= " WHERE ";
-				if($_typeCondition == 1){
+				if($_typeCondition == "login"){
 					$requete .= " login = ?";
-
-					$this->pdo->prepare($requete);
-					$resultat = $this->pdo->execute(array($_attribut,$_condition));
 				}
-				else if($_typeCondition == 2){
-					$requete .= " note = ?";
-
-					$this->pdo->prepare($requete);
-					$resultat = $this->pdo->execute(array($_attribut,$_condition));
+				else if($_typeCondition == "password"){
+					$requete .= " password = ?";
 				}
+				else if($_typeCondition == "moyenne"){
+					$requete .= " moyenne = ?";
+				}
+
+				if($_attribut == "*"){
+					$resultat = $this->pdo->prepare($requete);
+					$resultat->execute(array($_condition));
+				}
+				else{
+					$resultat = $this->pdo->prepare($requete);
+					$resultat->execute(array($_attribut,$_condition));
+				}
+				
+			}
+			else{
+				if($_attribut == "*"){
+					$resultat = $this->pdo->prepare($requete);
+					$resultat->execute();
+				}
+				else{
+					$resultat = $this->pdo->prepare($requete);
+					$resultat->execute(array($_attribut));
+				}
+				
 			}
 			
 			return $resultat;
@@ -145,10 +185,10 @@
 		 *	@param string $_string le mot de passe à inserer dans la table 
 		 *	@param string $_login le login qui indique la ligne où on va modifier le mot de passe
 		*/
-		public function modifier_mdp_utilisateur($_string,$_login){
+		public function modifier_mdp_enseignant($_string,$_login){
 			try{
 				
-				$requete='UPDATE `utilisateur` SET `password`="'.$_string.'"WHERE login="'.$_login.'"';
+				$requete = 'UPDATE enseignant SET password = "'.$_string.'"WHERE login="'.$_login.'"';
 				
 				$stmt = $this->pdo->query($requete);
 				
