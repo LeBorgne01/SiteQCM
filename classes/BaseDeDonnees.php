@@ -145,13 +145,13 @@
 			if($_condition != ""){
 				$requete .= " WHERE ";
 				if($_typeCondition == "login"){
-					$requete .= " login = ?";
+					$requete .= "login = ?";
 				}
 				else if($_typeCondition == "password"){
-					$requete .= " password = ?";
+					$requete .= "password = ?";
 				}
 				else if($_typeCondition == "moyenne"){
-					$requete .= " moyenne = ?";
+					$requete .= "moyenne = ?";
 				}
 
 				if($_attribut == "*"){
@@ -197,16 +197,16 @@
 			if($_condition != ""){
 				$requete .= " WHERE ";
 				if($_typeCondition == "idQcm"){
-					$requete .= " idQcm = ?";
+					$requete .= "idQcm = ?";
 				}
 				else if($_typeCondition == "loginEnseignant"){
-					$requete .= " loginEnseignant = ?";
+					$requete .= "loginEnseignant = ?";
 				}
 				else if($_typeCondition == "nom"){
-					$requete .= " nom = ?";
+					$requete .= "nom = ?";
 				}
 				else if($_typeCondition == "description"){
-					$requete .= " description = ?";
+					$requete .= "description = ?";
 				}
 
 				if($_attribut == "*"){
