@@ -1,4 +1,5 @@
 <?php 
+//cette pas sert à générer des mots de passe hashé pour inserer à la main les utilisateur
 	
 session_start();
 $_SESSION['root']=dirname(__FILE__);
