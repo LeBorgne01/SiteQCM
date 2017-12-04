@@ -14,32 +14,46 @@ class HTML{
 
 	public function meta_data(){
 		$code = "";
-		if(!is_null($this->logo) && isset($this->logo)){
+		if(!is_null($this->logo) && isset($this->logo))
 			$code .= '<link rel="shortcut icon" type="image/x-icon" href="' . $this->logo . '">';
-		}
 
-		if(!is_null($this->charset) && isset($this->charset)){
+		if(!is_null($this->charset) && isset($this->charset))
 			$code .= '<meta charset="' . $this->charset . '">';
-		}
 
-		if(!is_null($this->titre) && isset($this->titre)){
+		if(!is_null($this->titre) && isset($this->titre))
 			$code .= '<title>' . $this->titre . '</title>';
-		}
 
-		if(!is_null($this->css) && isset($this->css)){
+		if(!is_null($this->css) && isset($this->css))
 			$code .= '<link rel="stylesheet" href="style/' . $this->css . '">';
-		}
 
 		return $code;
 	}
 
+	public function header($_texte=null){
+		$code = "<header>";
+		if(!is_null($_texte))
+			$code .= $_texte;
+		return $code .= "</header>";
+	}
+
 	public function menu_nav_prof(){
-		$code ='<nav>
+		$code = '<nav>
 					<ul>
 						<li><a href="index.php">Accueil</a></li>
 						<li><a href="">Ajouter un QCM</a></li>
 						<li><a href="">Modifier un QCM</a></li>
 						<li><a href="">Supprimer un QCM</a></li>
+						<li><a href="">Mon compte</a></li>
+					</ul>
+				</nav>';
+		return $code;
+	}
+
+	public function menu_nav_eleve(){
+		$code ='<nav>
+					<ul>
+						<li><a href="index.php">Accueil</a></li>
+						<li><a href="">Mes QCM</a></li>
 						<li><a href="">Mon compte</a></li>
 					</ul>
 				</nav>';

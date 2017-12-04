@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 17 nov. 2017 à 10:45
+-- Généré le :  lun. 04 déc. 2017 à 07:51
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -31,8 +31,16 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `enseignant`;
 CREATE TABLE IF NOT EXISTS `enseignant` (
   `login` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
   PRIMARY KEY (`login`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `enseignant`
+--
+
+INSERT INTO `enseignant` (`login`, `password`) VALUES
+('Jean', '123');
 
 -- --------------------------------------------------------
 
@@ -43,9 +51,17 @@ CREATE TABLE IF NOT EXISTS `enseignant` (
 DROP TABLE IF EXISTS `etudiant`;
 CREATE TABLE IF NOT EXISTS `etudiant` (
   `login` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `moyenne` float NOT NULL,
   PRIMARY KEY (`login`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `etudiant`
+--
+
+INSERT INTO `etudiant` (`login`, `password`, `moyenne`) VALUES
+('Michou', '154', 12.4);
 
 -- --------------------------------------------------------
 
@@ -63,15 +79,31 @@ CREATE TABLE IF NOT EXISTS `notes` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `utilisateur`
+-- Structure de la table `qcm`
 --
 
-DROP TABLE IF EXISTS `utilisateur`;
-CREATE TABLE IF NOT EXISTS `utilisateur` (
-  `login` varchar(50) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `statut` varchar(20) NOT NULL,
-  PRIMARY KEY (`login`)
+DROP TABLE IF EXISTS `qcm`;
+CREATE TABLE IF NOT EXISTS `qcm` (
+  `idQcm` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(50) NOT NULL,
+  `description` varchar(250) NOT NULL,
+  PRIMARY KEY (`idQcm`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `question`
+--
+
+DROP TABLE IF EXISTS `question`;
+CREATE TABLE IF NOT EXISTS `question` (
+  `idQuestion` int(11) NOT NULL AUTO_INCREMENT,
+  `intitule` varchar(50) NOT NULL,
+  `typeReponse` int(11) NOT NULL,
+  `reponses` varchar(300) NOT NULL,
+  `bonneReponse` varchar(300) NOT NULL,
+  PRIMARY KEY (`idQuestion`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 COMMIT;
 

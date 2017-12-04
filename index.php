@@ -13,11 +13,10 @@ include("classes/HTML.php");
 	?>
 </head>
 <body>
-	<nav>
-		<?php
-		echo $html->menu_nav_prof();
-		?>
-	</nav>
+	<?php
+	echo $html->header("QCM en folie");
+	echo $html->menu_nav_eleve();
+	?>
 	<main>
 		<?php
 		$form_connexion = new form("connexion","fonctions/form_connexion.php","post","");

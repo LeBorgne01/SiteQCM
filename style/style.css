@@ -1,9 +1,25 @@
-main
+html
 {
-	text-align: center;
 	height: 100%;
-	position: relative;
-	margin: auto;
+	background-color: #384D7F;
+	margin: 0;
+	padding: 0;
+}
+
+body
+{
+	height:inherit;
+	margin: 0;
+	padding: 0;
+}
+
+header
+{
+	background-color: #5E687F;
+	text-align: center;
+	font:arial;
+	font-size: 50px;
+
 }
 
 nav
@@ -51,6 +67,16 @@ nav ul li a
 	height: 100%;
 }
 
-nav ul li a:hover {
+nav ul li a:hover 
+{
 	background-color:#BCD0FF;
+}
+
+main
+{
+	text-align: center;
+	height: 100%;
+	position: relative;
+	margin: auto;
+	padding-top: 50px;
 }
