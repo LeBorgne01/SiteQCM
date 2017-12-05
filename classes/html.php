@@ -33,6 +33,11 @@ class HTML{
 		$code = "<header>";
 		if(!is_null($_texte))
 			$code .= $_texte;
+		if(isset($_SESSION['utilisateur'])){
+			$code .= "<form action='./fonctions/form_deconnexion.php'>";
+			$code .= "<input type='submit' name='deconnexion' value='Déconnexion'>";
+			$code .= "</form>";
+		}
 		return $code .= "</header>";
 	}
 
