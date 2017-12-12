@@ -3,6 +3,7 @@
 	session_start();
 	require_once("fonctions/connexion_bdd.php");
 	require_once("classes/html.php");
+	require_once("classes/Form.php");
 
 	//On vérifie que l'utilisateur est connecté et qu'il s'agit bien d'un enseignant
 	if(!isset($_SESSION['utilisateur']) || $_SESSION['typeUtilisateur'] != "Enseignant"){
@@ -22,6 +23,7 @@
 <body>
 	<?php
 		echo $html->header("QCM en folie");
+		echo "<a href='./fonctions/form_deconnexion.php'>Déconnexion</a>";
 
 		$qcmEnseignant = $BaseDeDonnees->select_qcm("*","loginEnseignant",$_SESSION['utilisateur']->getLogin());
 		$qcmEnseignant = $qcmEnseignant->fetchAll();
@@ -29,6 +31,11 @@
 		foreach ($qcmEnseignant as $row) {
 			echo "<div classe='qcm'>";
 			echo $row[2];
+			$form = new Form("modifierQcm","","post","");
+			$form->set_hidden("idQcm",$row[0]);
+			$form->set_submit("modifier","Modifier/Corriger");
+			echo $form->get_form();
+			echo "</div>";
 		}
 	?>
 </body>
