@@ -129,11 +129,12 @@ text
 
 .listeQcmEnseignant
 {
+	display: inline-block;
 	position: relative;
 	margin:10px;
 	padding: 10px;
 	background-color: white;
-	width: 10px;
+	width: 50%;
 }
 
 .listeQcmEnseignant p
