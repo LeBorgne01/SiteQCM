@@ -21,8 +21,8 @@
 </head>
 <body>
 	<?php
-		echo $html->header("QCM en folie");
-
+		echo $html->header("QCM");
+		echo $html->menu_nav_prof();
 		$qcmEnseignant = $BaseDeDonnees->select_qcm("*","loginEnseignant",$_SESSION['utilisateur']->getLogin());
 		$qcmEnseignant = $qcmEnseignant->fetchAll();
 
