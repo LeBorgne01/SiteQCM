@@ -33,6 +33,7 @@ class HTML{
 		$code = "<header>";
 		if(!is_null($_texte))
 			$code .= $_texte;
+		
 		return $code .= "</header>";
 	}
 
