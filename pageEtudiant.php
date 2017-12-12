@@ -1,6 +1,8 @@
 <?php
 	require_once(__DIR__.'/classes/Etudiant.php');
 	session_start();
+	/*var_dump(is_file('./fonctions/connexion_bdd.php'));
+	die();*/
 	require_once('./fonctions/connexion_bdd.php');
 	require_once(__DIR__.'/classes/html.php');
 
@@ -23,8 +25,10 @@
 	<?php
 		echo $html->header("QCM en folie");
 
-		$qcmEtudiant = $BaseDeDonnees->select_qcm("*","loginEtudiant",$_SESSION['utilisateur']->getLogin());
-		$qcmEtudiant = $qcmEtudiant->fetchAll();
+		$qcmEtudiant = $BaseDeDonnees->select_qcmEtudiant($_SESSION['utilisateur']->getLogin());
+		var_dump($qcmEtudiant);
+		die();
+		$qcmEtudiant = $qcmEtudiant->fetch();
 
 		foreach ($qcmEtudiant as $row) {
 			echo "<div classe='qcm'>";

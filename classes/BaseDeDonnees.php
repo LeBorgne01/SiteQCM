@@ -253,6 +253,22 @@
 		}
 
 
+		public function select_qcmEtudiant($_loginEtudiant){
+			$requete = "SELECT idQcm FROM participation_qcm WHERE loginEtudiant = ?";
+			$qcmEtudiant = $this->pdo->prepare($requete);
+			$qcmEtudiant->execute(array($_loginEtudiant));
+
+			$qcmEtudiant->fetch();
+			$qcms = array();
+			foreach ($qcmEtudiant as $idQcm) {
+				$qcms[] = $this->select_qcm("*","idQcm",$idQcm)->fetchAll();
+			}
+			
+			return $qcms;
+		}
+
+
+
 		/**
 		 * 	execute une requête SQL qui permet de modifier des lignes dans la table 'utilisateur'
 		 *	@param string $_string le mot de passe à inserer dans la table 
