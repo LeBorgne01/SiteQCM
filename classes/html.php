@@ -33,6 +33,7 @@ class HTML{
 		$code = "<header>";
 		if(!is_null($_texte))
 			$code .= $_texte;
+		
 		return $code .= "</header>";
 	}
 
@@ -61,7 +62,7 @@ class HTML{
 	}
 
 	public function ecran_connexion(){
-		$code = "<p>Viens niquer des manifestants<br>punk à chiens qui puent la merde!</p>";
+		$code = "<p>Connectez-vous</p>";
 
 		$form_connexion = new form("connexion","fonctions/form_connexion.php","post","");
 		$form_connexion->set_input("text","login","Login",1);

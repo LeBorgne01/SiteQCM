@@ -43,7 +43,8 @@ else{
 			require_once("../classes/Enseignant.php");
 
 			$enseignant =new Enseignant($login,$hash);
-			$_SESSION["utilisateur"]=$enseignant;
+			$_SESSION['utilisateur']=$enseignant;
+			$_SESSION['typeUtilisateur'] = "Enseignant";
 			
 			// redirection vers page enseignant
 			header("Location: ../pageEnseignant.php?message=Connecté");
@@ -67,7 +68,8 @@ else{
 				require_once ("../classes/Etudiant.php");
 
 				$etudiant =new Etudiant($login,$hash);
-				$_SESSION["utilisateur"]=$etudiant;
+				$_SESSION['utilisateur']=$etudiant;
+				$_SESSION['typeUtilisateur'] = "Etudiant";
 
 				// redirection vers page étudiant
 				header("Location: ../pageEtudiant.php?message=Connecté");

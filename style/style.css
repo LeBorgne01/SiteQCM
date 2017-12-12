@@ -89,61 +89,137 @@ main
 	padding-top: 50px;
 }
 
-.compte
-{
-	margin-top: 35vh; /* poussé de la moitié de hauteur de viewport */
-	transform: translateY(-65%); /* tiré de la moitié de sa propre hauteur */
-	padding: 10px;
-	position: relative;
-	display: inline-table;
-	width: auto;
-	height: auto;
+.compte 		
+{  
 	text-align: center;
-	background-color: #5E687F;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	margin:30px auto 0;
+	display:inline-block; 
+	background:#FFF;
+	padding:10px 50px 50px;
 }
 
-.compte *
-{
-	margin: 5px;
+.footer 	
+{ 
+	text-align:center; 
 }
 
-.compte input[type=text],input[type=password]
-{
-	background-color: #d3d3d3;
-	padding: 10px;
-	border-radius: 10px;
-	border: 1px solid;
-	font-size: 20px;
+.footer a  
+{ 
+	color:#53B2C8; 
 }
 
-.compte input[type=submit]
-{
-	background-color: #d3d3d3;
-	font-size: 20px;
-	padding: 5px;
-	border:1px solid;
-	border-radius: 5px;
-	transition: all 0.5s;
-	cursor: pointer;
-	position: relative;
-	transition: 0.5s;
+.group 			  
+{ 
+	text-align: center;
+	position:relative;
 }
-
-.compte input[type=submit]:after
-{
-	content: '\00bb';
-	position: absolute;
-	opacity: 0;
-	top: 0;
-	right: -20px;
-	transition: 0.5s;
-}
-
-
 
 .compte p
 {
 	font-family: 'adam';
-	font-size: 20px;
+}
+
+input 				
+{
+	font-size:18px;
+	padding:10px 10px 10px 5px;
+	display:block;
+	width:300px;
+	border:none;
+	border-bottom:1px solid #757575;
+}
+
+input:focus 		
+{ 
+	outline:none; 
+}
+
+label 				 
+{
+	color:#999; 
+	font-size:18px;
+	font-weight:normal;
+	position:absolute;
+	pointer-events:none;
+	left:5px;
+	top:10px;
+	transition:0.2s ease all; 
+	-moz-transition:0.2s ease all; 
+	-webkit-transition:0.2s ease all;
+}
+
+input:focus ~ label, input:valid ~ label 		
+{
+	top:-10px;
+	font-size:14px;
+	color:#5264AE;
+}
+
+.bar 
+{ 
+	position:relative; display:block; width:300px; 
+}
+
+.bar:before, .bar:after 	
+{
+	content:'';
+	height:2px; 
+	width:0;
+	bottom:1px; 
+	position:absolute;
+	background:#5264AE; 
+	transition:0.2s ease all; 
+	-moz-transition:0.2s ease all; 
+	-webkit-transition:0.2s ease all;
+}
+
+.bar:before 
+{
+	left:50%;
+}
+
+.bar:after 
+{
+	right:50%; 
+}
+
+input:focus ~ .bar:before, input:focus ~ .bar:after 
+{
+	width:50%;
+}
+
+.highlight 
+{
+	position:absolute;
+	height:60%; 
+	width:100px; 
+	top:25%; 
+	left:0;
+	pointer-events:none;
+	opacity:0.5;
+}
+
+input:focus ~ .highlight 
+{
+	-webkit-animation:inputHighlighter 0.3s ease;
+	-moz-animation:inputHighlighter 0.3s ease;
+	animation:inputHighlighter 0.3s ease;
+}
+
+@-webkit-keyframes inputHighlighter 
+{
+	from { background:#5264AE; }
+	to 	{ width:0; background:transparent; }
+}
+
+@-moz-keyframes inputHighlighter 
+{
+	from { background:#5264AE; }
+	to 	{ width:0; background:transparent; }
+}
+
+@keyframes inputHighlighter 
+{
+	from { background:#5264AE; }
+	to 	{ width:0; background:transparent; }
 }
