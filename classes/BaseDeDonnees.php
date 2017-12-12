@@ -273,6 +273,7 @@
 			$resultat = $this->pdo->prepare($requete);
 			$resultat->execute(array($_idQcm));
 
+			$resultat = $resultat->fetchAll();
 			return $resultat;
 		}
 

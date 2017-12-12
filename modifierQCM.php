@@ -36,6 +36,17 @@ require_once("fonctions/connexion_bdd.php");
 
 		$form_modifierQCM->set_input("text","descriptionQCM",$resultat[3],1);
 		$form_modifierQCM->add_br();
+		
+		$questions= $BaseDeDonnees->select_questionQcm($resultat[0]);
+
+
+		foreach ($questions as $question ) {
+			$form_modifierQCM->set_input("text","descriptionQCM",$question[2],1);
+			$form_modifierQCM->set_input("text","descriptionQCM",$question[3],1);
+			$form_modifierQCM->set_input("text","descriptionQCM",$question[4],1);
+			$form_modifierQCM->set_input("text","descriptionQCM",$question[5],1);
+			
+		}
 
 
 		$form_modifierQCM->set_submit("valideModification","Valider");
