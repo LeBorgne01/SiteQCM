@@ -11,7 +11,7 @@
     /*Ajout à la BD*/
     $res = $bd->select("*","qcm",""); //On selectionne toutes les données dans la table User
     //var_dump($res);
-    var_dump(empty($_POST['title']));
+    //var_dump(empty($_POST['title']));
     if(empty($_POST['title']) && empty($_POST['desc']) && empty($_POST['nbQuestion']) && $numberQuestion == "0"){
       header('Location:http://localhost/siteqcm/test.php#?bad_title_description_nb'); //Reconduit vers la page de création
     }
@@ -32,7 +32,7 @@
       }
     }
     
-    var_dump($ind);
+   //var_dump($ind);
 
     if($ind == 1){
         $request = "INSERT INTO qcm VALUES(NULL,'','".$title."','".$desc."')";
@@ -40,7 +40,7 @@
       }
 }
 
-	  $formTest = new Form("formQuestion","formQuestion","../fonctions/validerCreationQcm.php","post",""); //Construction d'un QCM
+	  $formTest = new Form("formQuestion","./validerCreationQcm.php","post",""); //Construction d'un QCM
 
    	for($i = 0; $i < $numberQuestion; $i++){ //Boucle que va de 0 à N questions
    		  echo "<p> Question".($i+1)."</p>"; //Affiche "Question (i+1)"
