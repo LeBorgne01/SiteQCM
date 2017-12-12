@@ -10,7 +10,7 @@
 		header('Location: index.php?erreur="Vous n\'êtes pas connecté"');
 	}
 
-	$html = new HTML(null,"utf-8","QCM","style.css");
+	$html = new HTML(null,"utf-8","QCM","styleEnseignant.css");
 
 ?>
 <!DOCTYPE html>
@@ -29,7 +29,7 @@
 		$qcmEnseignant = $qcmEnseignant->fetchAll();
 
 		foreach ($qcmEnseignant as $row) {
-			echo "<div classe='qcm'>";
+			echo "<div classe='listeQcmEnseignant'>";
 			echo $row[2];
 			$form = new Form("modifierQcm","","post","");
 			$form->set_hidden("idQcm",$row[0]);

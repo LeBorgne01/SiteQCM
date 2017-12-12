@@ -26,4 +26,8 @@
 		public function ajout_note($_note){
 			$this->notes[] = $_note;
 		}
+
+		public function getLogin(){
+			return $this->login;
+		}
 	}
