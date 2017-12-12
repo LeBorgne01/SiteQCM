@@ -104,6 +104,9 @@ main
 	float: right;
 	margin: 5px;
 	background-color: #e3e3e3;
+	transition:0.2s ease all; 
+	-moz-transition:0.2s ease all; 
+	-webkit-transition:0.2s ease all;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -129,15 +132,51 @@ text
 
 .listeQcmEnseignant
 {
+	display: table;
 	position: relative;
 	margin:10px;
 	padding: 10px;
 	background-color: white;
-	width: 10px;
+	text-align: left;
 }
 
 .listeQcmEnseignant p
 {
 	padding: 0;
-	margin:0;
+	margin-top: 5px;
+}
+
+#ajouterQcm
+{
+	display: inline-block;
+	font-family: calibri;
+	font-size: 20px;
+	padding: 10px;
+	text-decoration: none;
+	color: black;
+	border: none;
+	margin: 10px;
+	background-color: #e3e3e3;
+	transition:0.2s ease all; 
+	-moz-transition:0.2s ease all; 
+	-webkit-transition:0.2s ease all;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#ajouterQcm:hover
+{
+	color:white;
+	background-color: #5E687F;
+	transition:0.2s ease all; 
+	-moz-transition:0.2s ease all; 
+	-webkit-transition:0.2s ease all;
+	cursor: pointer;
+}
+
+#main
+{
+	text-align: center;
+	position: relative;
+	left: 50px;
+	display: inline-block;
 }
