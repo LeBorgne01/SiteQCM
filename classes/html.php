@@ -75,6 +75,11 @@ class HTML{
 		return $code;
 	}
 
+	public function setLink(){
+		$code = "<a type='"."' href='"."'>"."</a>";
+		return $code;
+	}
+
 	/*public function ecran_inscription(){
 		$code = "Ou inscrivez-vous ici (professeurs)";
 
