@@ -4,7 +4,7 @@
     include "../classes/BaseDeDonnees.php";
 
     //Variable
-    $bd = new BaseDeDonnees("root","site_qmc","","localhost"); //Construction d'une nouvelle Base de données
+    $bd = new BaseDeDonnees("root","qcm","","localhost"); //Construction d'une nouvelle Base de données
     $bd->connexion(); //Connexion à la base de données
     $ind = 1; //Indicateur booléen
 
@@ -24,6 +24,8 @@
 
       while($donnees = $res->fetch()){ //On parcours toutes la tables
       //On vérifie si le login n'existe
+        //var_dump($title);
+        //var_dump($donnees['nom']);
         if($title == $donnees['nom']){ //On vérifie si le Login existe déjà dans la BD
           $ind = 0;
           header('Location:http://localhost/siteqcm/test.php#?qcm_already_existant');
@@ -42,11 +44,11 @@
 
    	for($i = 0; $i < $numberQuestion; $i++){ //Boucle que va de 0 à N questions
    		  echo "<p> Question".($i+1)."</p>"; //Affiche "Question (i+1)"
-        $formTest->set_input("question", "text","question","Question",true); //Ajouter un input de type texte qui correspond à la question
-        $formTest->set_input("answer", "text","answer","Réponse",true); //Ajouter un input de tyoe text qui correspond à la réponse 
+        $formTest->set_input("text","question[".$i."]","Question",true); //Ajouter un input de type texte qui correspond à la question
+        $formTest->set_input("text","answer[".$i."]","Réponse",true); //Ajouter un input de tyoe text qui correspond à la réponse 
         $formTest->update_form(); //Permet d'afficher un form
         $formTest->reset_form(); //Remise à "" d'un form
    	} 
-   	$formTest->set_submit("validerQcm", "validerQcm","Valider"); //Ajoute le bouton Valider
+   	$formTest->set_submit( "validerQcm","Valider"); //Ajoute le bouton Valider
     $formTest->get_form(); //Afficher le form
 ?>	

@@ -10,8 +10,8 @@
 		 *  @param string $_class la class à utilisé dans le CSS
 		 *	@param string $_enctype l'enctype utlisé dans ce formulaire
 		*/
-		public function __construct($_class,$_name,$_action,$_method,$_enctype){
-			$this->form = "<form class='".$_class."' name='".$_name."' action='".$_action."' method='".$_method."'";
+		public function __construct($_name,$_action,$_method,$_enctype){
+			$this->form = "<form name='".$_name."' action='".$_action."' method='".$_method."'";
 
 			//On regarde si on a un 'enctype'
 			if($_enctype == ""){
@@ -31,20 +31,16 @@
 		 *	@param boolean $_required si oui ou non l'input est obligatoire à remplir
 		*/
 
-		public function set_input($_class, $_type,$_name,$_placeholder,$_required){
-			$this->form .= "<input class ='".$_class."' type='".$_type."'";
-		}
-		
 		public function set_input($_type,$_name,$_placeholder,$_required){
-			$this->form .= '<div class="group"><input type="' .$_type. '"';
+			$this->form .= "<input  type='".$_type."'";
 
 			if($_name != ""){
 				$this->form .= " name='".$_name."'";
 			}
 
-			/*if($_placeholder != ""){
+			if($_placeholder != ""){
 				$this->form .= " placeholder='".$_placeholder."'";
-			}*/
+			}
 
 			if($_required == "true"){
 				$this->form .= " required";
@@ -52,7 +48,7 @@
 
 			$this->form .= ">";
 			$this->form .= '<span class="highlight"></span><span class="bar"></span>';
-			$this->form .= '<label>' . $_placeholder . '</label></div>';
+			//$this->form .= '<label>' . $_placeholder . '</label></div>';
 		}
 
 		/**
@@ -61,8 +57,8 @@
 		 *	@param string $_name le nom du bouton de validation
 		 *	@param string $_value la valeur que prend le bouton de validation
 		*/
-		public function set_submit($_class, $_name,$_value){
-			$this->form .= "<input class='".$_class."' type='submit' name='".$_name."' value='".$_value."'>";
+		public function set_submit($_name,$_value){
+			$this->form .= "<input type='submit' name='".$_name."' value='".$_value."'>";
 		}
 
 		public function reset_form(){
@@ -103,8 +99,8 @@
 		 *	@param boolean $_required si oui ou non l'input est obligatoire à remplir
 		 *	@param string $_value la valeur que l'input prend
 		*/
-		public function set_input_value($_class, $_type,$_name,$_placeholder,$_required,$_value){
-			$this->form .= "<input class ='".$_class."' type='".$_type."'";
+		public function set_input_value( $_type,$_name,$_placeholder,$_required,$_value){
+			$this->form .= "<input type='".$_type."'";
 
 			if($_name != ""){
 				$this->form .= " name='".$_name."'";
@@ -125,8 +121,8 @@
 
 		}
 
-		public function set_button($_class, $_type,$_name,$_action,$_required,$_value){
-			$this->form .= "<input class ='".$_class."' type='".$_type."' action='".$action."'";
+		public function set_button($_type,$_name,$_action,$_required,$_value){
+			$this->form .= "<input type='".$_type."' action='".$action."'";
 
 			if($_name != ""){
 				$this->form .= " name='".$_name."'";
@@ -147,8 +143,8 @@
 			$this->form .= "<br>";
 		}
 
-		public function set_select($_class,$_name,$_string){	
-				$this->form .= "<select class='".$_class."' name='".$_name."'>";
+		public function set_select($_name,$_string){	
+				$this->form .= "<select name='".$_name."'>";
 				foreach($_string as $key){
 					$this->form .= "<option value='".$_string[$key]."'>'".$_string[$key]."'</option>";
 				}	
