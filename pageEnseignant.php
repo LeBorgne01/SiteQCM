@@ -25,12 +25,13 @@
 		echo $html->header("QCM en folie");
 		echo $html->setLink("./fonctions/form_deconnexion.php","Déconnexion","id","deconnexion");
 		echo $html->setLink("","Ajouter","id","ajouterQcm");
+
 		$qcmEnseignant = $BaseDeDonnees->select_qcm("*","loginEnseignant",$_SESSION['utilisateur']->getLogin());
 		$qcmEnseignant = $qcmEnseignant->fetchAll();
 
 		foreach ($qcmEnseignant as $row) {
-			echo "<div classe='listeQcmEnseignant'>";
-			echo $row[2];
+			echo "<div class='listeQcmEnseignant'>";
+			echo "<p class='titreQcmListe'>".$row[2]."</p>";
 			$form = new Form("modifierQcm","","post","");
 			$form->set_hidden("idQcm",$row[0]);
 			$form->set_submit("modifier","Modifier/Corriger");
