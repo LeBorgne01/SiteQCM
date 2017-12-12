@@ -22,14 +22,8 @@
 </head>
 <body>
 	<?php
-<<<<<<< HEAD
-		echo $html->header("QCM");
-		echo $html->menu_nav_prof();
-=======
 		echo $html->header("QCM en folie");
-		echo "<a href='./fonctions/form_deconnexion.php'>Déconnexion</a>";
-
->>>>>>> 18c5050f30208c4e228fa8a7a59cfc3438144920
+		echo "<a id='deconnexion' href='./fonctions/form_deconnexion.php'>Déconnexion</a>";
 		$qcmEnseignant = $BaseDeDonnees->select_qcm("*","loginEnseignant",$_SESSION['utilisateur']->getLogin());
 		$qcmEnseignant = $qcmEnseignant->fetchAll();
 
