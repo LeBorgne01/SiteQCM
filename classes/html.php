@@ -75,8 +75,18 @@ class HTML{
 		return $code;
 	}
 
-	public function setLink(){
-		$code = "<a type='"."' href='"."'>"."</a>";
+	public function setLink($_href,$_valeur,$_type = null, $_css = null){
+		$code = "<a ";
+
+		if(!is_null($_type)){
+			if($_type == "class"){
+				$code .= "class='" .$_css."' ";
+			}
+			else if($_type == "id"){
+				$code .= "id='".$_css."' ";
+			}
+		}
+		$code .= "href='" . $_href . "'>".$_valeur."</a>";
 		return $code;
 	}
 
