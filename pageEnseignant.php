@@ -34,7 +34,7 @@
 		foreach ($qcmEnseignant as $row) {
 			echo "<div class='listeQcmEnseignant'>";
 			echo "<p>".$row[2]."</p>";
-			$form = new Form("modifierQcm","","post","");
+			$form = new Form("modifierQcm","modifierQcm","post","");
 			$form->set_hidden("idQcm",$row[0]);
 			$form->set_submit("modifier","Modifier/Corriger");
 			echo $form->get_form();
