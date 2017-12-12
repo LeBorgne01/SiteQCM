@@ -135,3 +135,9 @@ text
 	background-color: white;
 	width: 10px;
 }
+
+.listeQcmEnseignant p
+{
+	padding: 0;
+	margin:0;
+}
