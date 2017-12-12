@@ -238,10 +238,10 @@
 		public function select_qcmEtudiant($_loginEtudiant){
 			$requete = "SELECT idQcm FROM participation_qcm WHERE loginEtudiant = ?";
 			$qcmEtudiant = $this->pdo->prepare($requete);
-			$qcmEtudiant->execute($_loginEtudiant);
+			$qcmEtudiant->execute(array($_loginEtudiant));
 
 			$qcmEtudiant->fetch();
-
+			$qcms = array();
 			foreach ($qcmEtudiant as $idQcm) {
 				$qcms[] = $this->select_qcm("*","idQcm",$idQcm)->fetchAll();
 			}
