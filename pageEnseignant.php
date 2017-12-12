@@ -23,7 +23,9 @@
 <body>
 	<?php
 		echo $html->header("QCM en folie");
+
 		echo $html->setLink("./fonctions/form_deconnexion.php","Déconnexion","id","deconnexion");
+		echo '<div id="main">';
 		echo $html->setLink("","Ajouter","id","ajouterQcm");
 
 		$qcmEnseignant = $BaseDeDonnees->select_qcm("*","loginEnseignant",$_SESSION['utilisateur']->getLogin());
@@ -38,6 +40,7 @@
 			echo $form->get_form();
 			echo "</div>";
 		}
+		echo "</div>";
 	?>
 </body>
 </html>
