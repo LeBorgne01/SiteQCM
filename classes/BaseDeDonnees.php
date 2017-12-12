@@ -268,6 +268,14 @@
 		}
 
 
+		public function select_questionQcm($_idQcm){
+			$requete = "SELECT * FROM question WHERE idQcm = ?";
+			$resultat = $this->pdo->prepare($requete);
+			$resultat->execute(array($_idQcm));
+
+			return $resultat;
+		}
+
 
 		/**
 		 * 	execute une requête SQL qui permet de modifier des lignes dans la table 'utilisateur'
