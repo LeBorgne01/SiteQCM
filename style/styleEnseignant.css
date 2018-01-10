@@ -73,11 +73,18 @@ nav ul li a
 	display: block;
 	font-size: 30px;
 	height: 100%;
+	transition:0.2s ease all; 
+	-moz-transition:0.2s ease all; 
+	-webkit-transition:0.2s ease all;
 }
 
 nav ul li a:hover 
 {
 	background-color:#BCD0FF;
+	transition:0.2s ease all; 
+	-moz-transition:0.2s ease all; 
+	-webkit-transition:0.2s ease all;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 main
@@ -132,12 +139,40 @@ text
 
 .listeQcmEnseignant
 {
-	display: table;
+	display: inline-block;
 	position: relative;
 	margin:10px;
+	margin-bottom: 50px;
 	padding: 10px;
 	background-color: white;
 	text-align: left;
+}
+
+.listeQcmEnseignant input[type="submit"]
+{
+	position: relative;
+	font-family: calibri;
+	font-size: 20px;
+	padding: 10px;
+	color: black;
+	border: none;
+	float: right;
+	margin: 5px;
+	background-color: #e3e3e3;
+	transition:0.2s ease all; 
+	-moz-transition:0.2s ease all; 
+	-webkit-transition:0.2s ease all;
+}
+
+.listeQcmEnseignant input[type="submit"]:hover
+{
+	color:white;
+	background-color: #5E687F;
+	transition:0.2s ease all; 
+	-moz-transition:0.2s ease all; 
+	-webkit-transition:0.2s ease all;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	cursor: pointer;
 }
 
 .listeQcmEnseignant p
@@ -177,6 +212,6 @@ text
 {
 	text-align: center;
 	position: relative;
-	left: 50px;
-	display: inline-block;
+	margin: 20px 50px 0px 50px;
+	display: block;
 }

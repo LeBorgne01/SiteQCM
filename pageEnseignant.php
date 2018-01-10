@@ -23,23 +23,26 @@
 <body>
 	<?php
 		echo $html->header("QCM en folie");
+		echo $html->menu_nav_prof();
 
 		echo $html->setLink("./fonctions/form_deconnexion.php","Déconnexion","id","deconnexion");
 		echo '<div id="main">';
-		echo $html->setLink("","Ajouter","id","ajouterQcm");
+		echo $html->setLink("./fonctions/ajoutQCM.php","Ajouter","id","ajouterQcm");
 
 		$qcmEnseignant = $BaseDeDonnees->select_qcm("*","loginEnseignant",$_SESSION['utilisateur']->getLogin());
 		$qcmEnseignant = $qcmEnseignant->fetchAll();
 
+		echo '<div id="liste">';
 		foreach ($qcmEnseignant as $row) {
 			echo "<div class='listeQcmEnseignant'>";
 			echo "<p>".$row[2]."</p>";
-			$form = new Form("modifierQcm","modifierQcm","post","");
+			$form = new Form("modifierQcm","modifierQCM.php","post","");
 			$form->set_hidden("idQcm",$row[0]);
 			$form->set_submit("modifier","Modifier/Corriger");
 			echo $form->get_form();
 			echo "</div>";
 		}
+		echo '</div>';
 		echo "</div>";
 	?>
 </body>

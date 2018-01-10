@@ -66,9 +66,9 @@ class HTML{
 
 		$form_connexion = new form("connexion","fonctions/form_connexion.php","post","");
 		$form_connexion->set_input("text","login","Login",1);
-		$form_connexion->add_br();
+		//$form_connexion->add_br();
 		$form_connexion->set_input("password","password","Mot de passe",1);
-		$form_connexion->add_br();
+		//$form_connexion->add_br();
 		$form_connexion->set_submit("validerconnexion","Connexion");
 		$code .= $form_connexion->get_form();
 

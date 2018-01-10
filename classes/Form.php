@@ -32,7 +32,7 @@
 		*/
 
 		public function set_input($_type,$_name,$_placeholder,$_required){
-			$this->form .= "<input  type='".$_type."'";
+			$this->form .= '<div class="group"><input  type="'.$_type.'"';
 
 			if($_name != ""){
 				$this->form .= " name='".$_name."'";
@@ -48,8 +48,19 @@
 
 			$this->form .= ">";
 			$this->form .= '<span class="highlight"></span><span class="bar"></span>';
-			//$this->form .= '<label>' . $_placeholder . '</label></div>';
+			$this->form .= /*'<label>' . $_placeholder . '</label>*/'</div>';
 		}
+
+		public function set_textArea($_name,$_row,$_cols,$_contenu){
+
+			
+	   			$this->form .=	"<textarea name='".$_name."' rows='"$_row"' cols='"cols"'>";
+  								 
+ 				$this->form .=	$_contenu;
+				$this->form .=  "</textarea>";
+
+					
+			}
 
 		/**
 		 * 	Permet d'ajouter le bouton de validation du formulaire
@@ -70,7 +81,7 @@
 		 *	@return string $this->form le formulaire complet créé 
 		*/
 		public function update_form(){
-			echo $this->form;
+			return $this->form;
 		}
 
 		/**
@@ -79,7 +90,7 @@
 		*/
 		public function get_form(){
 			$this->form .= "</form>";
-			echo $this->form;
+			return $this->form;
 		}
 
 		/**
