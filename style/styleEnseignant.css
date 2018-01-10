@@ -135,6 +135,7 @@ text
 	display: block;
 	position: relative;
 	margin:10px;
+	margin-bottom: 50px;
 	padding: 10px;
 	background-color: white;
 	text-align: left;
@@ -155,6 +156,16 @@ text
 	-moz-transition:0.2s ease all; 
 	-webkit-transition:0.2s ease all;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.listeQcmEnseignant input[type="submit"]:hover
+{
+	color:white;
+	background-color: #5E687F;
+	transition:0.2s ease all; 
+	-moz-transition:0.2s ease all; 
+	-webkit-transition:0.2s ease all;
+	cursor: pointer;
 }
 
 .listeQcmEnseignant p

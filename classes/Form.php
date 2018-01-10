@@ -48,7 +48,7 @@
 
 			$this->form .= ">";
 			$this->form .= '<span class="highlight"></span><span class="bar"></span>';
-			$this->form .= '<label>' . $_placeholder . '</label></div>';
+			$this->form .= /*'<label>' . $_placeholder . '</label>*/'</div>';
 		}
 
 		/**
