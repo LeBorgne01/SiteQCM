@@ -23,7 +23,7 @@
       $title=htmlspecialchars($_POST['title']); //Récupère le titre du QCM
       $desc=htmlspecialchars($_POST['desc']); //Récupère la description du QCM
       $numberQuestion=htmlspecialchars($_POST['nbQuestion']); //Récupère le nombre de question
-      
+      $_SESSION['nomQcm'] = $title;
       sleep(1);
 
       while($donnees = $res->fetch()){ //On parcours toutes la tables
