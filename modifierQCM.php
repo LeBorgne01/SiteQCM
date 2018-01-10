@@ -24,11 +24,10 @@ require_once("fonctions/connexion_bdd.php");
 	?>
 	<main>
 
-	<?php	
-	$idQcm = $_POST['idQcm'];
-	$resultat = $BaseDeDonnees->select_qcm("*","idQcm",$idQcm);
-	$resultat = $resultat->fetch();
-
+		<?php	
+		$idQcm = $_POST['idQcm'];
+		$resultat = $BaseDeDonnees->select_qcm("*","idQcm",$idQcm);
+		$resultat = $resultat->fetch();
 
 		$form_modifierQCM = new form("modifierQCM","..\modifierQCM.php","post","");
 		$form_modifierQCM->set_input("text","nomQCM",$resultat[2],1);
@@ -36,25 +35,26 @@ require_once("fonctions/connexion_bdd.php");
 
 		$form_modifierQCM->set_input("text","descriptionQCM",$resultat[3],1);
 		$form_modifierQCM->add_br();
-		
-		$questions= $BaseDeDonnees->select_questionQcm($resultat[0]);
 
+		$questions= $BaseDeDonnees->select_questionQcm($resultat[0]);
 
 		foreach ($questions as $question ) {
 			$form_modifierQCM->set_input("text","descriptionQCM",$question[2],1);
 			$form_modifierQCM->set_input("text","descriptionQCM",$question[3],1);
 			$form_modifierQCM->set_input("text","descriptionQCM",$question[4],1);
 			$form_modifierQCM->set_input("text","descriptionQCM",$question[5],1);
-			
+
 		}
 
-
 		$form_modifierQCM->set_submit("valideModification","Valider");
-	    echo $form_modifierQCM->get_form();
 
+		echo $html->setLink("pageEnseignant.php","Retour","id","retour");
 		
+		echo '<div class ="modif">';
+		echo $form_modifierQCM->get_form();
+		echo '</div>';
 
-	?>
+		?>
 		
 	</main>
 </body>
