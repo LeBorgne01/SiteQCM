@@ -1,4 +1,8 @@
 <?php
+    session_start(); 
+    $_SESSION['numberQuestion']=htmlspecialchars($_POST['nbQuestion']); 
+?>
+<?php
     include "../classes/Qcm.php";
     include "../classes/Form.php";
     include "../classes/BaseDeDonnees.php";
@@ -19,7 +23,7 @@
       $title=htmlspecialchars($_POST['title']); //Récupère le titre du QCM
       $desc=htmlspecialchars($_POST['desc']); //Récupère la description du QCM
       $numberQuestion=htmlspecialchars($_POST['nbQuestion']); //Récupère le nombre de question
-
+      
       sleep(1);
 
       while($donnees = $res->fetch()){ //On parcours toutes la tables
@@ -32,7 +36,7 @@
       }
     }
     
-   //var_dump($ind);
+    var_dump($ind);
 
     if($ind == 1){
         $request = "INSERT INTO qcm VALUES(NULL,'','".$title."','".$desc."')";
@@ -42,13 +46,15 @@
 
 	  $formTest = new Form("formQuestion","./validerCreationQcm.php","post",""); //Construction d'un QCM
 
+    
+
    	for($i = 0; $i < $numberQuestion; $i++){ //Boucle que va de 0 à N questions
    		  echo "<p> Question".($i+1)."</p>"; //Affiche "Question (i+1)"
         $formTest->set_input("text","question[".$i."]","Question",true); //Ajouter un input de type texte qui correspond à la question
         $formTest->set_input("text","answer[".$i."]","Réponse",true); //Ajouter un input de tyoe text qui correspond à la réponse 
-        $formTest->update_form(); //Permet d'afficher un form
-        $formTest->reset_form(); //Remise à "" d'un form
+        /*echo $formTest->update_form(); //Permet d'afficher un form
+        $formTest->reset_form(); //Remise à "" d'un form*/
    	} 
    	$formTest->set_submit( "validerQcm","Valider"); //Ajoute le bouton Valider
-    $formTest->get_form(); //Afficher le form
+    echo $formTest->get_form(); //Afficher le form
 ?>	
