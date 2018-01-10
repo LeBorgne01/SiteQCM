@@ -26,7 +26,7 @@
 
 		echo $html->setLink("./fonctions/form_deconnexion.php","Déconnexion","id","deconnexion");
 		echo '<div id="main">';
-		echo $html->setLink("","Ajouter","id","ajouterQcm");
+		echo $html->setLink("./fonctions/ajoutQCM.php","Ajouter","id","ajouterQcm");
 
 		$qcmEnseignant = $BaseDeDonnees->select_qcm("*","loginEnseignant",$_SESSION['utilisateur']->getLogin());
 		$qcmEnseignant = $qcmEnseignant->fetchAll();

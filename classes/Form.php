@@ -51,6 +51,7 @@
 			$this->form .= /*'<label>' . $_placeholder . '</label>*/'</div>';
 		}
 
+
 		/**
 		 * 	Permet d'ajouter le bouton de validation du formulaire
 		 *	@param string $_class la classe utilisé dans le CSS
