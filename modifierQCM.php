@@ -12,7 +12,7 @@ require_once("fonctions/connexion_bdd.php");
 <html>
 <head>
 	<?php
-	$html = new HTML(null,"utf-8","QCM","style.css");
+	$html = new HTML(null,"utf-8","QCM","styleEnseignant.css");
 	echo $html->meta_data();
 	?>
 </head>
