@@ -51,12 +51,33 @@
 			$this->form .= /*'<label>' . $_placeholder . '</label>*/'</div>';
 		}
 
+
+		public function set_inputValue($_type,$_name,$_value,$_required){
+			$this->form .= '<div class="group"><input  type="'.$_type.'"';
+
+			if($_name != ""){
+				$this->form .= " name='".$_name."'";
+			}
+
+			if($_value != ""){
+				$this->form .= " value='".$_value."'";
+			}
+
+			if($_required == "true"){
+				$this->form .= " required";
+			}
+
+			$this->form .= ">";
+			$this->form .= '<span class="highlight"></span><span class="bar"></span>';
+			$this->form .= /*'<label>' . $_placeholder . '</label>*/'</div>';
+		}
+
 		public function set_textArea($_name,$_row,$_cols,$_contenu){
 
 			
-	   			$this->form .=	"<textarea name='".$_name."' rows='"$_row"' cols='"cols"'>";
+	   			$this->form .=	"<textarea name='".$_name."' rows='".$_row."' cols='".$_cols."'>";
   								 
- 				$this->form .=	$_contenu;
+ 				$this->form .=	"placeholder='".$_contenu."'";
 				$this->form .=  "</textarea>";
 
 					
