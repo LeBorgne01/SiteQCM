@@ -75,7 +75,13 @@
 		public function set_textArea($_name,$_row,$_cols,$_contenu){
 
 			
+<<<<<<< HEAD
 	   			$this->form .=	"<textarea name='".$_name."' rows='".$_row."' cols='".$_cols."'>";
+=======
+	   			$this->form .=	"<textarea name='".$_name."' rows='".$_row."' cols='".$cols."'>";
+
+	   			$this->form .=	"<textarea name='" . $_name . "' rows='" . $_row . "' cols='" . $_cols . "'>";
+>>>>>>> 511348cba8380cf389f4ca008378970219026e2e
   								 
  				$this->form .=	"placeholder='".$_contenu."'";
 				$this->form .=  "</textarea>";
@@ -182,7 +188,16 @@
 				}	
 				$this->form .= "</select>";
 			}
+
+
+		public function set_checkbox($_name,$_value){
+			$this->form .= "<input type='checkbox' name='".$_name."' value='".$_value."'>";
 		}
+
+
+	}
+
+
 
 
 ?>

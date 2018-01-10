@@ -10,7 +10,6 @@ html
 	background-color: #384D7F;
 	margin: 0;
 	padding: 0;
-	height: 1500px;
 }
 
 body
@@ -139,13 +138,18 @@ text
 
 .listeQcmEnseignant
 {
-	display: inline-block;
+	display: block;
 	position: relative;
 	margin:10px;
 	margin-bottom: 50px;
 	padding: 10px;
 	background-color: white;
 	text-align: left;
+}
+
+.listeQcmEnseignant *
+{
+	display: grid;
 }
 
 .listeQcmEnseignant input[type="submit"]
@@ -214,4 +218,78 @@ text
 	position: relative;
 	margin: 20px 50px 0px 50px;
 	display: block;
+}
+
+.modif *
+{
+	display: grid;
+	margin: 1px;
+}
+
+.modif
+{
+	display: block;
+	background-color: white;
+	margin:10px;
+	padding: 10px;
+}
+
+.modif input[type="submit"]
+{
+	position: relative;
+	font-family: calibri;
+	font-size: 20px;
+	padding: 10px;
+	color: black;
+	border: none;
+	margin: 5px;
+	background-color: #e3e3e3;
+	transition:0.2s ease all; 
+	-moz-transition:0.2s ease all; 
+	-webkit-transition:0.2s ease all;
+}
+
+.modif input[type="submit"]:hover
+{
+	transition:0.2s ease all; 
+	-moz-transition:0.2s ease all; 
+	-webkit-transition:0.2s ease all;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#retour
+{
+	position: absolute;
+	float: right;
+	left: 0px;
+	top: 0px;
+	font-family: calibri;
+	font-size: 20px;
+	padding: 10px;
+	text-decoration: none;
+	color: black;
+	border: none;
+	margin: 5px;
+	background-color: #e3e3e3;
+	transition:0.2s ease all; 
+	-moz-transition:0.2s ease all; 
+	-webkit-transition:0.2s ease all;
+}
+
+#retour:hover
+{
+	color:white;
+	background-color: #5E687F;
+	transition:0.2s ease all; 
+	-moz-transition:0.2s ease all; 
+	-webkit-transition:0.2s ease all;
+	cursor: pointer;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+input
+{
+	border:none;
+	border-bottom: 1px solid;
+	font-size: 20px;
 }

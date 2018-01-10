@@ -248,7 +248,7 @@
 				}
 				
 			}
-			
+
 			return $resultat;
 		}
 
@@ -258,10 +258,13 @@
 			$qcmEtudiant = $this->pdo->prepare($requete);
 			$qcmEtudiant->execute(array($_loginEtudiant));
 
-			$qcmEtudiant->fetch();
+			$qcmEtudiant = $qcmEtudiant->fetchAll();
+			
+			
 			$qcms = array();
 			foreach ($qcmEtudiant as $idQcm) {
-				$qcms[] = $this->select_qcm("*","idQcm",$idQcm)->fetchAll();
+				$qcms[] = $this->select_qcm("*","idQcm",$idQcm['idQcm'])->fetch();
+				
 			}
 			
 			return $qcms;
