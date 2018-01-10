@@ -48,9 +48,19 @@
 
 			$this->form .= ">";
 			$this->form .= '<span class="highlight"></span><span class="bar"></span>';
-			$this->form .= '</div>';
+			$this->form .= /*'<label>' . $_placeholder . '</label>*/'</div>';
 		}
 
+		public function set_textArea($_name,$_row,$_cols,$_contenu){
+
+			
+	   			$this->form .=	"<textarea name='".$_name."' rows='"$_row"' cols='"cols"'>";
+  								 
+ 				$this->form .=	$_contenu;
+				$this->form .=  "</textarea>";
+
+					
+			}
 
 		/**
 		 * 	Permet d'ajouter le bouton de validation du formulaire
