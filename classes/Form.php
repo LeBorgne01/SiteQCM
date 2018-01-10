@@ -54,6 +54,8 @@
 		public function set_textArea($_name,$_row,$_cols,$_contenu){
 
 			
+	   			$this->form .=	"<textarea name='".$_name."' rows='".$_row."' cols='".$cols."'>";
+
 	   			$this->form .=	"<textarea name='" . $_name . "' rows='" . $_row . "' cols='" . $_cols . "'>";
   								 
  				$this->form .=	$_contenu;
