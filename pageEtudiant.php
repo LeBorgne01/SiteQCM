@@ -5,6 +5,7 @@
 	die();*/
 	require_once('./fonctions/connexion_bdd.php');
 	require_once(__DIR__.'/classes/html.php');
+	require_once(__DIR__.'/classes/Form.php');
 
 	//On vérifie que l'utilisateur est connecté et qu'il s'agit bien d'un enseignant
 	if(!isset($_SESSION['utilisateur']) || $_SESSION['typeUtilisateur'] != "Etudiant"){
@@ -26,19 +27,20 @@
 		echo $html->header("QCM en folie");
 
 		$qcmEtudiant = $BaseDeDonnees->select_qcmEtudiant($_SESSION['utilisateur']->getLogin());
-		var_dump($qcmEtudiant);
-		die();
-		$qcmEtudiant = $qcmEtudiant->fetch();
+		
 
 		foreach ($qcmEtudiant as $row) {
-			echo "<div classe='qcm'>";
-			echo $row[2];
-			$form = new Form("modifierQcm","","post","");
-			$form->set_hidden("idQcm",$row[0]);
-			$form->set_submit("modifier","Modifier/Corriger");
-			echo $form->get_form();
-			echo "</div>";
+			echo "Nom : ".$row['nom']."<br>";
+
+			$form_reponse = new Form("form_reponse","./fonctions/repondreQcm.php","post","");
+			$form_reponse->set_hidden("idQcm",$row['idQcm']);
+			$form_reponse->set_submit("repondreQcm","Répondre");
+			
+			echo $form_reponse->get_form();
 		}
+
+
+		echo $html->setLink("./fonctions/form_deconnexion.php","Déconnexion","id","deconnexion");
 	?>
 </body>
 </html>

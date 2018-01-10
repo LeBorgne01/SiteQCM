@@ -161,7 +161,16 @@
 				}	
 				$this->form .= "</select>";
 			}
+
+
+		public function set_checkbox($_name,$_value){
+			$this->form .= "<input type='checkbox' name='".$_name."' value='".$_value."'>";
 		}
+
+
+	}
+
+
 
 
 ?>
