@@ -23,7 +23,6 @@ require_once("fonctions/connexion_bdd.php");
 
 	?>
 	<main>
-
 		<?php	
 		$idQcm = $_POST['idQcm'];
 		$resultat = $BaseDeDonnees->select_qcm("*","idQcm",$idQcm);
